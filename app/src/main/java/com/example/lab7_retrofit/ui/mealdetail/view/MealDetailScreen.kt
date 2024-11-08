@@ -29,7 +29,7 @@ fun MealsDetailScreen(navController: NavController, mealId: String) {
         LazyColumn(contentPadding = PaddingValues(16.dp)) {
             mealDetail?.let { meal ->
                 item {
-                    MealCategory(meal, navController)
+                    MealCategoryB(meal, navController)
                 }
             }
         }

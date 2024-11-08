@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.lab7_retrofit.app-mergeDebugResources-83:/values-v30/values-v30.xml",
+            "outputFile": "com.example.lab7_retrofit.app-mergeDebugResources-71:/values-v30/values-v30.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Javier\\.jdks\\jbr-17.0.12\\caches\\8.9\\transforms\\2e07bbbd8310afc2d736b64454dfbb16\\transformed\\material3-release\\res\\values-v30\\values-v30.xml",
+                    "source": "C:\\Users\\Javier\\.gradle\\caches\\transforms-4\\84b85566af61f38f7114093ed3d791ab\\transformed\\material3-release\\res\\values-v30\\values-v30.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

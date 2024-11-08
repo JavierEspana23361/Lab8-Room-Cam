@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
     <plurals name="mtrl_badge_content_description">
     <item quantity="one">%d नयाँ सूचना</item>
     <item quantity="other">%d नयाँ सूचनाहरू</item>
@@ -31,7 +31,11 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"यसमार्फत सेयर गर्नुहोस्"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g> मार्फत सेयर गर्नुहोस्"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"संक्षिप्त गर्नुहोस्"</string>
+    <string name="bottomsheet_action_collapse">पुछारको पाना कोल्याप्स गर्नुहोस्</string>
+    <string name="bottomsheet_action_expand">पुछारको पाना एक्स्पान्ड गर्नुहोस्</string>
     <string name="bottomsheet_action_expand_halfway">आधा ठुलो पार्नुहोस्</string>
+    <string name="bottomsheet_drag_handle_clicked">ड्र्याग ह्यान्डलमा डबल ट्याप गरियो</string>
+    <string name="bottomsheet_drag_handle_content_description">ड्र्याग ह्यान्डल</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"जवाफ दिनुहोस्"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"भिडियो"</string>
     <string msgid="3229508546291798546" name="call_notification_decline_action">"काट्नुहोस्"</string>
@@ -44,7 +48,6 @@
     <string name="clear_text_end_icon_content_description">पाठ खाली गर्नुहोस्</string>
     <string msgid="406453423630273620" name="close_drawer">"नेभिगेसन मेनु बन्द गर्नुहोस्"</string>
     <string msgid="7573152094250666567" name="close_sheet">"पाना बन्द गर्नुहोस्"</string>
-    <string name="common_google_play_services_unknown_issue">%1$s लाई Google Play services सँग सहकार्य गर्न समस्या भइरहेको छ। कृपया फेरि प्रयास गर्नुहोस्।</string>
     <string msgid="8038256446254964252" name="default_error_message">"अवैद्य इन्पुट"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"पपअप विन्डो"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"ड्रपडाउन मेनु"</string>
@@ -53,9 +56,6 @@
     <string name="icon_content_description">संवादको आइकन</string>
     <string msgid="6827826412747255547" name="in_progress">"काम हुँदै छ"</string>
     <string msgid="7933458017204019916" name="indeterminate">"आंशिक रूपमा जाँच गरिएको"</string>
-    <string msgid="475402237100444685" name="installation_cancelled">"स्थापना रद्द गरियो।"</string>
-    <string msgid="863287960437940689" name="installation_failed">"स्थापना गर्न सकिएन।"</string>
-    <string msgid="5968445461040787716" name="installing_module">"मोड्युल स्थापना गर्दै:"</string>
     <string name="item_view_role_description">ट्याब</string>
     <string msgid="2988463736136100848" name="m3c_bottom_sheet_collapse_description">"पुछारको पाना कोल्याप्स गर्नुहोस्"</string>
     <string msgid="1555567894577437024" name="m3c_bottom_sheet_dismiss_description">"पुछारको पाना हटाउनुहोस्"</string>
@@ -115,6 +115,7 @@
     <string msgid="1805687647081129904" name="m3c_tooltip_long_press_label">"टुलटिप देखाउनुहोस्"</string>
     <string msgid="5460405025248574620" name="m3c_tooltip_pane_description">"टुलटिप"</string>
     <string name="material_clock_toggle_content_description">पूर्वाह्न वा अपराह्न चयन गर्नुहोस्</string>
+    <string name="material_hour_24h_suffix">%1$s घण्टा</string>
     <string name="material_hour_selection">घन्टा चयन गर्नुहोस्</string>
     <string name="material_hour_suffix">%1$s बजे</string>
     <string name="material_minute_selection">मिनेट चयन गर्नुहोस्</string>
@@ -128,11 +129,12 @@
     <string name="material_timepicker_text_input_mode_description">समय इनपुट गर्न पाठ इनपुट मोडमा स्विच गर्नुहोस्।</string>
     <string name="mtrl_badge_numberless_content_description">नयाँ सूचना</string>
     <string name="mtrl_chip_close_icon_content_description">%1$s हटाउनुहोस्</string>
-    <string name="mtrl_exceed_max_badge_number_content_description">%1$d भन्दा बढी नयाँ सूचनाहरू</string>
+    <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">%1$d भन्दा बढी नयाँ सूचनाहरू</string>
     <string name="mtrl_picker_a11y_next_month">अर्को महिनामा सार्नुहोस्</string>
     <string name="mtrl_picker_a11y_prev_month">अघिल्लो महिनामा सार्नुहोस्</string>
     <string name="mtrl_picker_announce_current_selection">हालको चयन: %1$s</string>
-    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_cancel">रद्द गर्नुहोस्</string>
+    <string name="mtrl_picker_confirm">ठिक छ</string>
     <string name="mtrl_picker_date_header_selected">%1$s</string>
     <string name="mtrl_picker_date_header_title">मिति चयन गर्नुहोस्</string>
     <string name="mtrl_picker_date_header_unselected">चयन गरिएको मिति</string>
@@ -159,16 +161,13 @@
     <string name="mtrl_picker_toggle_to_day_selection">कुनै दिन चयन गर्ने विकल्प प्रयोग गर्न ट्याप गर्नुहोस्</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">पाठको इनपुट मोडमा बदल्नुहोस्</string>
     <string name="mtrl_picker_toggle_to_year_selection">कुनै वर्ष चयन गर्ने विकल्प प्रयोग गर्न ट्याप गर्नुहोस्</string>
-    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"माथि नेभिगेट गर्नुहोस्"</string>
-    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"नेभिगेसन ड्रअर खोल्नुहोस्"</string>
+    <string name="mtrl_timepicker_cancel">रद्द गर्नुहोस्</string>
+    <string name="mtrl_timepicker_confirm">ठिक छ</string>
     <string msgid="542007171693138492" name="navigation_menu">"नेभिगेसन मेनु"</string>
     <string msgid="6610465462668679431" name="not_selected">"चयन गरिएको छैन"</string>
-    <string msgid="4702104660890557116" name="ok">"ठिक छ"</string>
     <string name="password_toggle_content_description">पासवर्ड देखाउनुहोस्</string>
-    <string msgid="8366783942222789124" name="progress">"प्रगति:"</string>
     <string msgid="5941395253238309765" name="range_end">"दायराको अन्तिम बिन्दु"</string>
     <string msgid="7097486360902471446" name="range_start">"दायराको सुरुवात बिन्दु"</string>
-    <string msgid="1065327189183624288" name="retry">"पुनः प्रयास गर्नुहोस्"</string>
     <string msgid="6264217191555673260" name="search_menu_title">"खोज"</string>
     <string msgid="6043586758067023" name="selected">"चयन गरिएको छ"</string>
     <string msgid="4139871816613051306" name="state_empty">"खाली"</string>

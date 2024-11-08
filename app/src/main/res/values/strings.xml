@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Lab7-retrofit</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="category_name" />
+    <string name="date_content" />
 </resources>

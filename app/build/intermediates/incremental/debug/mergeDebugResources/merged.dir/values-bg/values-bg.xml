@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
     <plurals name="mtrl_badge_content_description">
     <item quantity="one">%d ново известие</item>
     <item quantity="other">%d нови известия</item>
@@ -31,7 +31,11 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"Споделяне със:"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"Споделяне със: <ns1:g id="APPLICATION_NAME">%s</ns1:g>"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"Свиване"</string>
+    <string name="bottomsheet_action_collapse">Свиване на долния лист</string>
+    <string name="bottomsheet_action_expand">Разгъване на долния лист</string>
     <string name="bottomsheet_action_expand_halfway">Разгъване наполовина</string>
+    <string name="bottomsheet_drag_handle_clicked">Двукратно докосване на манипулатора за преместване с плъзгане</string>
+    <string name="bottomsheet_drag_handle_content_description">Манипулатор за преместване с плъзгане</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"Отговор"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"Видеообаждане"</string>
     <string msgid="3229508546291798546" name="call_notification_decline_action">"Отхвърляне"</string>
@@ -44,7 +48,6 @@
     <string name="clear_text_end_icon_content_description">Изчистване на текста</string>
     <string msgid="406453423630273620" name="close_drawer">"Затваряне на менюто за навигация"</string>
     <string msgid="7573152094250666567" name="close_sheet">"Затваряне на таблицата"</string>
-    <string name="common_google_play_services_unknown_issue">%1$s има проблеми с услугите за Google Play. Моля, опитайте отново.</string>
     <string msgid="8038256446254964252" name="default_error_message">"Въведеното е невалидно"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"Изскачащ прозорец"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"Падащо меню"</string>
@@ -53,9 +56,6 @@
     <string name="icon_content_description">Икона за диалогов прозорец</string>
     <string msgid="6827826412747255547" name="in_progress">"В ход"</string>
     <string msgid="7933458017204019916" name="indeterminate">"Частично отметнато"</string>
-    <string msgid="475402237100444685" name="installation_cancelled">"Инсталирането е анулирано."</string>
-    <string msgid="863287960437940689" name="installation_failed">"Инсталирането не бе успешно."</string>
-    <string msgid="5968445461040787716" name="installing_module">"Модулът се инсталира:"</string>
     <string name="item_view_role_description">Раздел</string>
     <string msgid="2988463736136100848" name="m3c_bottom_sheet_collapse_description">"Свиване на долния лист"</string>
     <string msgid="1555567894577437024" name="m3c_bottom_sheet_dismiss_description">"Отхвърляне на долния лист"</string>
@@ -115,6 +115,7 @@
     <string msgid="1805687647081129904" name="m3c_tooltip_long_press_label">"Показване на подсказка"</string>
     <string msgid="5460405025248574620" name="m3c_tooltip_pane_description">"Подсказка"</string>
     <string name="material_clock_toggle_content_description">Изберете AM или PM</string>
+    <string name="material_hour_24h_suffix">%1$s часа</string>
     <string name="material_hour_selection">Изберете час</string>
     <string name="material_hour_suffix">%1$s часа</string>
     <string name="material_minute_selection">Избиране на минути</string>
@@ -128,11 +129,12 @@
     <string name="material_timepicker_text_input_mode_description">Превключете към режима за въвеждане на текст, за да въведете часа.</string>
     <string name="mtrl_badge_numberless_content_description">Ново известие</string>
     <string name="mtrl_chip_close_icon_content_description">Премахване на %1$s</string>
-    <string name="mtrl_exceed_max_badge_number_content_description">Повече от %1$d нови известия</string>
+    <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">Повече от %1$d нови известия</string>
     <string name="mtrl_picker_a11y_next_month">Преминаване към следващия месец</string>
     <string name="mtrl_picker_a11y_prev_month">Преминаване към предишния месец</string>
     <string name="mtrl_picker_announce_current_selection">Текущ избор: %1$s</string>
-    <string name="mtrl_picker_confirm">@android:string/ok</string>
+    <string name="mtrl_picker_cancel">Отказ</string>
+    <string name="mtrl_picker_confirm">OK</string>
     <string name="mtrl_picker_date_header_selected">%1$s</string>
     <string name="mtrl_picker_date_header_title">Избиране на дата</string>
     <string name="mtrl_picker_date_header_unselected">Избрана дата</string>
@@ -159,16 +161,13 @@
     <string name="mtrl_picker_toggle_to_day_selection">Докоснете, за да превключите към избиране на ден</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">Превключване към режим за въвеждане на текст</string>
     <string name="mtrl_picker_toggle_to_year_selection">Докоснете, за да превключите към избиране на година</string>
-    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"Придвижване нагоре"</string>
-    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"Отваряне на слоя за навигация"</string>
+    <string name="mtrl_timepicker_cancel">Отказ</string>
+    <string name="mtrl_timepicker_confirm">OK</string>
     <string msgid="542007171693138492" name="navigation_menu">"Меню за навигация"</string>
     <string msgid="6610465462668679431" name="not_selected">"Не е избрано"</string>
-    <string msgid="4702104660890557116" name="ok">"OK"</string>
     <string name="password_toggle_content_description">Показване на паролата</string>
-    <string msgid="8366783942222789124" name="progress">"Напредък:"</string>
     <string msgid="5941395253238309765" name="range_end">"Край на обхвата"</string>
     <string msgid="7097486360902471446" name="range_start">"Начало на обхвата"</string>
-    <string msgid="1065327189183624288" name="retry">"Нов опит"</string>
     <string msgid="6264217191555673260" name="search_menu_title">"Търсене"</string>
     <string msgid="6043586758067023" name="selected">"Избрано"</string>
     <string msgid="4139871816613051306" name="state_empty">"Празно"</string>

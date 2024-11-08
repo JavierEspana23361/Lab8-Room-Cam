@@ -38,6 +38,7 @@ import com.example.lab7_retrofit.navigation.AppBar
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
+
 fun MealsFilterScreen(navController: NavController, category: String) {
     Log.d("ARGUMENTS", category)
 
@@ -54,7 +55,7 @@ fun MealsFilterScreen(navController: NavController, category: String) {
         LazyColumn(contentPadding = PaddingValues(16.dp)) {
             mealFilter?.let {
                 items(it) { meal ->
-                    MealCategory(meal)
+                    MealCategoryC(meal)
                 }
             }
         }

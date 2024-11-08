@@ -31,22 +31,37 @@ import com.example.lab7_retrofit.ui.categories.viewmodel.categoriesViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MealsCategoriesScreen(navController: NavController) {
+fun MealsCategoriesScreen(navController: NavController,
+                          viewModel: categoriesViewModel) {
+    val categories = viewModel.categories.observeAsState(initial = emptyList())
+    val isLoading = viewModel.isLoading.observeAsState(initial = false)
+    val errorMessage by viewModel.errorMessage.observeAsState()
 
-    val viewModel: categoriesViewModel = viewModel()
-    val meals = viewModel.mealsState.value
+    LaunchedEffect(Unit) {
+        viewModel.fetchCategories()
+    }
+
+    errorMessage?.let {
+        Text(text = it, color = androidx.compose.ui.graphics.Color.Red)
+    }
 
     Scaffold(topBar = {
-        AppBar(title = "Categories", navController = navController)
+        AppBar(title = "Recipes", navController = navController)
     }) {
-        Column(modifier = Modifier.fillMaxSize()){
-            Spacer(modifier = Modifier.height(70.dp))
-            LazyColumn(contentPadding = PaddingValues(16.dp)) {
-                items(meals) { meal ->
-                    MealCategory(meal, navController)
+        Box(modifier = Modifier.fillMaxSize()) {
+            if (isLoading.value) {
+                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+            } else {
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp)
+                ) {
+                    items(categories.value) { category ->
+                        MealCategory(category, navController)
+                    }
                 }
             }
         }
-
     }
 }

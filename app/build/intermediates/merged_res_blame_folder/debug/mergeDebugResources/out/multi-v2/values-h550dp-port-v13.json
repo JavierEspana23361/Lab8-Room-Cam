@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.lab7_retrofit.app-mergeDebugResources-83:/values-h550dp-port-v13/values-h550dp-port-v13.xml",
+            "outputFile": "com.example.lab7_retrofit.app-mergeDebugResources-71:/values-h550dp-port-v13/values-h550dp-port-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Javier\\.jdks\\jbr-17.0.12\\caches\\8.9\\transforms\\44d2ae9d633c27902200daa50a4dc558\\transformed\\material-1.4.0\\res\\values-h550dp-port-v13\\values-h550dp-port-v13.xml",
+                    "source": "C:\\Users\\Javier\\.gradle\\caches\\transforms-4\\bc0fcd441eda62fe7efad1c654812462\\transformed\\material-1.9.0\\res\\values-h550dp-port-v13\\values-h550dp-port-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

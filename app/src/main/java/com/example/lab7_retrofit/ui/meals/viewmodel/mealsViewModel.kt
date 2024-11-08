@@ -14,7 +14,6 @@ import java.lang.Exception
 import java.net.ConnectException
 import androidx.navigation.NavHostController
 import com.example.lab7_retrofit.ui.meals.repository.mealsRepository
-import com.example.lab7_retrofit.ui.meals.view.mealsScreen
 import kotlinx.coroutines.launch
 
 class mealsViewModel (val repository: mealsRepository = mealsRepository()): ViewModel() {

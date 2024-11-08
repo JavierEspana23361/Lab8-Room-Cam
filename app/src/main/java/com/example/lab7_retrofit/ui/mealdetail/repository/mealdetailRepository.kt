@@ -7,7 +7,7 @@ import retrofit2.Call
 
 class mealdetailRepository(private val webService: MealsWebService = MealsWebService()) {
 
-    suspend fun getmealdetail(mealId: String): Call<mealdetailResponse> {
+    suspend fun getmealdetail(mealId: String): retrofit2.Call<mealdetailResponse> {
         return webService.getmealdetail(mealId)
     }
 }

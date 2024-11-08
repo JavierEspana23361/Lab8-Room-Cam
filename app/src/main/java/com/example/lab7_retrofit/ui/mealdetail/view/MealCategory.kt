@@ -21,7 +21,7 @@ import coil.compose.rememberAsyncImagePainter
 import com.example.lab7_retrofit.networking.response.mealdetail.mealdetail
 
 @Composable
-fun MealCategory(meal: mealdetail, navController: NavController){
+fun MealCategoryB(meal: mealdetail, navController: NavController){
     Box(
         modifier = Modifier
             .fillMaxSize()
