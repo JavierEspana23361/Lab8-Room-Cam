@@ -19,14 +19,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coil.compose.rememberAsyncImagePainter
-import com.example.lab7_retrofit.R
-import com.example.lab7_retrofit.database.categories.MealCategoryEntity
 import com.example.lab7_retrofit.networking.response.categories.categories
 import com.example.lab7_retrofit.navigation.NavigationState
 import com.example.lab7_retrofit.navigation.navigateTo
+import org.intellij.lang.annotations.PrintFormat
 
 @Composable
-fun MealCategory(meal: MealCategoryEntity, navController: NavController) {
+fun MealCategory(meal: categories, navController: NavController) {
     Card(
         shape = RoundedCornerShape(8.dp),
         modifier = Modifier
@@ -45,28 +44,26 @@ fun MealCategory(meal: MealCategoryEntity, navController: NavController) {
                 modifier = Modifier
                     .align(Alignment.CenterVertically)
                     .padding(16.dp).clickable {
-                        if (meal.name.isNotEmpty()) {
+                        meal.name?.let {
                             navigateTo(
                                 navController,
-                                NavigationState.MealsRecipesList.createRoute(meal.name)
+                                NavigationState.MealsRecipesList.createRoute(it)
                             )
                         }
                     }
             ) {
                 Text(
-                    text = stringResource(R.string.category_name),
-                    style = MaterialTheme.typography.titleSmall
-                )
-                Text(
-                    text = meal.name,
-                    style = MaterialTheme.typography.bodySmall
+                    text = meal.name ?: "",
+                    style = MaterialTheme.typography.titleMedium
                 )
                 HorizontalDivider()
                 Text(
-                    text = stringResource(R.string.date_content, 11, 12),
+                    text = meal.description ?: "",
                     style = MaterialTheme.typography.bodySmall
                 )
             }
         }
     }
 }
+
+

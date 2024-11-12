@@ -16,7 +16,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.BlendMode.Companion.Color
@@ -31,37 +30,28 @@ import com.example.lab7_retrofit.ui.categories.viewmodel.categoriesViewModel
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun MealsCategoriesScreen(navController: NavController,
-                          viewModel: categoriesViewModel) {
-    val categories = viewModel.categories.observeAsState(initial = emptyList())
-    val isLoading = viewModel.isLoading.observeAsState(initial = false)
-    val errorMessage by viewModel.errorMessage.observeAsState()
+fun MealsCategoriesScreen(navController: NavController) {
 
-    LaunchedEffect(Unit) {
-        viewModel.fetchCategories()
-    }
-
-    errorMessage?.let {
-        Text(text = it, color = androidx.compose.ui.graphics.Color.Red)
-    }
+    val viewModel: categoriesViewModel = viewModel()
+    val meals = viewModel.mealsState.value
 
     Scaffold(topBar = {
-        AppBar(title = "Recipes", navController = navController)
+        AppBar(title = "Categories", navController = navController)
     }) {
-        Box(modifier = Modifier.fillMaxSize()) {
-            if (isLoading.value) {
-                CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
-            } else {
-                LazyColumn(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .padding(16.dp)
-                ) {
-                    items(categories.value) { category ->
-                        MealCategory(category, navController)
-                    }
+        Column(modifier = Modifier.fillMaxSize()){
+            Spacer(modifier = Modifier.height(70.dp))
+            LazyColumn(contentPadding = PaddingValues(16.dp)) {
+                items(meals) { meal ->
+                    MealCategory(meal, navController)
                 }
             }
         }
+
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewMealsCategoriesScreen() {
+    MealsCategoriesScreen(navController = rememberNavController())
 }

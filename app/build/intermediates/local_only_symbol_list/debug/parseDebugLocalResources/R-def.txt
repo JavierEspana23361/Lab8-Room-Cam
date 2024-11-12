@@ -15,8 +15,6 @@ drawable ic_launcher_foreground
 mipmap ic_launcher
 mipmap ic_launcher_round
 string app_name
-string category_name
-string date_content
 style Theme.Lab7retrofit
 xml backup_rules
 xml data_extraction_rules

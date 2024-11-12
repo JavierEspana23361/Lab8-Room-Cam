@@ -22,7 +22,5 @@
     <color name="teal_700">#FF018786</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">Lab7-retrofit</string>
-    <string name="category_name"/>
-    <string name="date_content"/>
     <style name="Theme.Lab7retrofit" parent="android:Theme.Material.Light.NoActionBar"/>
 </resources>

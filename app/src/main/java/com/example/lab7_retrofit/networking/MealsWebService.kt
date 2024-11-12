@@ -29,7 +29,8 @@ class MealsWebService {
         return api.filtercategories(category)
     }
 
-    fun getmealdetail(mealId: String): Call<mealdetailResponse> {
+
+    suspend fun getmealdetail(mealId: String): mealdetailResponse {
         return api.getmealdetail(mealId)
     }
 
