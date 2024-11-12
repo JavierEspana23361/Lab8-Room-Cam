@@ -1,7 +1,9 @@
+// AppBar.kt
 package com.example.lab7_retrofit.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -19,17 +21,18 @@ fun AppBar(title: String, navController: NavController) {
         title = {
             Text(text = title, color = Color.White)
         },
-        colors = TopAppBarDefaults.topAppBarColors(containerColor =  Color(0xFF5FA450)),
+        colors = TopAppBarDefaults.topAppBarColors(containerColor = Color(0xFF5FA450)),
         navigationIcon = {
             if (navController.previousBackStackEntry != null) {
-                run {
-                    IconButton(onClick = { navController.navigateUp() }) {
-                        Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                            contentDescription = null)
-                    }
+                IconButton(onClick = { navController.navigateUp() }) {
+                    Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
                 }
-            } else {
-                null
             }
-        })
+        },
+        actions = {
+            IconButton(onClick = { navController.navigate("supermarket") }) {
+                Icon(imageVector = Icons.Filled.ShoppingCart, contentDescription = "Supermarket")
+            }
+        }
+    )
 }

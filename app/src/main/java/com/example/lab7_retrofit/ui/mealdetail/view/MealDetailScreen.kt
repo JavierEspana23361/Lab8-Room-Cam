@@ -21,18 +21,29 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.lab7_retrofit.navigation.AppBar
 import com.example.lab7_retrofit.networking.response.mealdetail.mealdetail
 import com.example.lab7_retrofit.ui.mealdetail.viewmodel.mealdetailViewModel
+import com.example.lab7_retrofit.ui.supermarket.repository.SupermarketRepository
+import com.example.lab7_retrofit.ui.supermarket.viewmodel.SupermarketViewModel
+import com.example.lab7_retrofit.ui.supermarket.viewmodel.SupermarketViewModelFactory
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MealsDetailScreen(navController: NavController, mealId: String) {
     val context = LocalContext.current
     val viewModel: mealdetailViewModel = ViewModelProvider(context as ViewModelStoreOwner).get(mealdetailViewModel::class.java)
+
+    // Create the SupermarketRepository
+    val supermarketRepository = SupermarketRepository()
+    // Create the SupermarketViewModel using the factory
+    val supermarketViewModel: SupermarketViewModel = viewModel(
+        factory = SupermarketViewModelFactory(supermarketRepository)
+    )
 
     LaunchedEffect(Unit) {
         viewModel.lmealdetail(mealId)
@@ -45,7 +56,9 @@ fun MealsDetailScreen(navController: NavController, mealId: String) {
             AppBar(title = "Details", navController = navController)
         },
         floatingActionButton = {
-            FloatingActionButton(onClick = { /* No action for now */ }) {
+            FloatingActionButton(onClick = {
+                supermarketViewModel.addItem(mealId)
+            }) {
                 Icon(Icons.Filled.Add, contentDescription = "Add")
             }
         }

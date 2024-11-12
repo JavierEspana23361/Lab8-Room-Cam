@@ -4,12 +4,12 @@ import com.example.lab7_retrofit.networking.response.MealsApi
 import com.example.lab7_retrofit.networking.response.categories.categoriesResponse
 import com.example.lab7_retrofit.networking.response.mealdetail.mealdetailResponse
 import com.example.lab7_retrofit.networking.response.meals.mealsResponse
-import retrofit2.Call
+import com.example.lab7_retrofit.networking.response.supermarket.supermarketResponse
+
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class MealsWebService {
-
     private var api: MealsApi
 
     init {
@@ -29,9 +29,12 @@ class MealsWebService {
         return api.filtercategories(category)
     }
 
-
     suspend fun getmealdetail(mealId: String): mealdetailResponse {
         return api.getmealdetail(mealId)
+    }
+
+    suspend fun fetchItems(mealId: String): supermarketResponse {
+        return api.fetchItems(mealId)
     }
 
 }

@@ -1,3 +1,4 @@
+// Navigation.kt
 package com.example.lab7_retrofit.navigation
 
 import androidx.compose.runtime.Composable
@@ -10,6 +11,7 @@ import androidx.navigation.navArgument
 import com.example.lab7_retrofit.ui.categories.view.MealsCategoriesScreen
 import com.example.lab7_retrofit.ui.mealdetail.view.MealsDetailScreen
 import com.example.lab7_retrofit.ui.meals.view.MealsFilterScreen
+import com.example.lab7_retrofit.ui.supermarket.view.SupermarketScreen
 
 @Composable
 fun Navigation(navController: NavHostController, modifier: Modifier = Modifier) {
@@ -18,11 +20,9 @@ fun Navigation(navController: NavHostController, modifier: Modifier = Modifier) 
         startDestination = NavigationState.MealsCategories.route,
         modifier = modifier
     ) {
-        // MealCategoriesScreen
         composable(route = NavigationState.MealsCategories.route) {
             MealsCategoriesScreen(navController = navController)
         }
-        // MealFilterScreen
         composable(
             route = NavigationState.MealsRecipesList.route,
             arguments = listOf(navArgument("category") {
@@ -32,7 +32,6 @@ fun Navigation(navController: NavHostController, modifier: Modifier = Modifier) 
             val categoryName = backStackEntry.arguments?.getString("category") ?: ""
             MealsFilterScreen(navController = navController, category = categoryName)
         }
-        // MealDetailScreen
         composable(
             route = NavigationState.MealDetail.route,
             arguments = listOf(navArgument("mealId") {
@@ -41,6 +40,9 @@ fun Navigation(navController: NavHostController, modifier: Modifier = Modifier) 
         ) { backStackEntry ->
             val mealId = backStackEntry.arguments?.getString("mealId") ?: ""
             MealsDetailScreen(navController = navController, mealId = mealId)
+        }
+        composable(route = "supermarket") {
+            SupermarketScreen(navController = navController)
         }
     }
 }
