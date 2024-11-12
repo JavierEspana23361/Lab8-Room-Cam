@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.lab7_retrofit.networking.response.mealdetail.mealdetail
 import com.example.lab7_retrofit.ui.mealdetail.repository.mealdetailRepository
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class mealdetailViewModel(private val repository: mealdetailRepository = mealdetailRepository()) : ViewModel() {
 
@@ -19,8 +20,10 @@ class mealdetailViewModel(private val repository: mealdetailRepository = mealdet
             try {
                 val response = repository.getmealdetail(mealId)
                 _mealDetail.value = response.meals.firstOrNull()
+            } catch (e: HttpException) {
+                Log.e("MealDetailViewModel", "HTTP error: ${e.message()}")
             } catch (e: Exception) {
-                Log.e("MealDetailViewModel", e.message.toString())
+                Log.e("MealDetailViewModel", "Error: ${e.message}")
             }
         }
     }

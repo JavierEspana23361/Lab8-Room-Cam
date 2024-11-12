@@ -1,10 +1,15 @@
 package com.example.lab7_retrofit.ui.supermarket.viewmodel
 
+import android.util.Log
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.lab7_retrofit.networking.response.mealdetail.mealdetail
 import com.example.lab7_retrofit.ui.supermarket.repository.SupermarketRepository
 import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class SupermarketViewModel(private val repository: SupermarketRepository) : ViewModel() {
 
@@ -12,30 +17,34 @@ class SupermarketViewModel(private val repository: SupermarketRepository) : View
 
     val idlist = mutableListOf<String>()
 
-    init {
+    private val _mealDetail = MutableLiveData<List<mealdetail>>()
+    val mealDetail: LiveData<List<mealdetail>> = _mealDetail
+
+    fun addItem(mealId: String) {
+        idlist.add(mealId)
+        fetchItems()
+    }
+
+    fun deleteItem(mealId: String) {
+        idlist.remove(mealId)
         fetchItems()
     }
 
     private fun fetchItems() {
         viewModelScope.launch {
-            repository.fetchItems(mealId = idlist.joinToString(separator = ","))
-        }
-    }
-
-    fun addItem(mealId: String) {
-        idlist.add(mealId)
-
-    }
-
-    fun deleteItem(mealId: String) {
-        viewModelScope.launch {
-            repository.delete(mealId)
-            fetchItems()
+            try {
+                val details = idlist.map { mealId ->
+                    repository.getmealdetail(mealId).meals.firstOrNull()
+                }.filterNotNull()
+                _mealDetail.value = details
+            } catch (e: HttpException) {
+                Log.e("SupermarketViewModel", "HTTP error: ${e.message()}")
+            } catch (e: Exception) {
+                Log.e("SupermarketViewModel", "Error: ${e.message}")
+            }
         }
     }
 }
-
-
 
 class SupermarketViewModelFactory(private val repository: SupermarketRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
