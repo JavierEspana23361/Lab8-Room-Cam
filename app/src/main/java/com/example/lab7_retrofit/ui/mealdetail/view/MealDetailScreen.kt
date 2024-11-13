@@ -1,7 +1,6 @@
 package com.example.lab7_retrofit.ui.mealdetail.view
 
 import android.annotation.SuppressLint
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
@@ -11,22 +10,19 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import coil.compose.rememberAsyncImagePainter
+import com.example.lab7_retrofit.MyApp
 import com.example.lab7_retrofit.navigation.AppBar
-import com.example.lab7_retrofit.networking.response.mealdetail.mealdetail
+import com.example.lab7_retrofit.networking.MealsWebService
 import com.example.lab7_retrofit.ui.mealdetail.viewmodel.mealdetailViewModel
 import com.example.lab7_retrofit.ui.supermarket.repository.SupermarketRepository
 import com.example.lab7_retrofit.ui.supermarket.viewmodel.SupermarketViewModel
@@ -39,8 +35,12 @@ fun MealsDetailScreen(navController: NavController, mealId: String) {
     val viewModel: mealdetailViewModel = ViewModelProvider(context as ViewModelStoreOwner).get(mealdetailViewModel::class.java)
 
     // Create the SupermarketRepository
-    val supermarketRepository = SupermarketRepository()
-    // Create the SupermarketViewModel using the factory
+    val app = context.applicationContext as MyApp
+    val supermarketRepository = SupermarketRepository(
+        webService = MealsWebService(),
+        dao = app.database.supermarketItemDao()
+    )
+
     val supermarketViewModel: SupermarketViewModel = viewModel(
         factory = SupermarketViewModelFactory(supermarketRepository)
     )
@@ -57,7 +57,7 @@ fun MealsDetailScreen(navController: NavController, mealId: String) {
         },
         floatingActionButton = {
             FloatingActionButton(onClick = {
-                supermarketViewModel.addItem(mealId)
+                app.addItem(mealId)
             }) {
                 Icon(Icons.Filled.Add, contentDescription = "Add")
             }

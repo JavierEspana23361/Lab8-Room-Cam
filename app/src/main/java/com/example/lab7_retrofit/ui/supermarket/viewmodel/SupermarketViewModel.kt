@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.lab7_retrofit.database.supermarket.SupermarketItemEntity
 import com.example.lab7_retrofit.networking.response.mealdetail.mealdetail
 import com.example.lab7_retrofit.ui.supermarket.repository.SupermarketRepository
 import kotlinx.coroutines.launch
@@ -15,36 +16,13 @@ class SupermarketViewModel(private val repository: SupermarketRepository) : View
 
     val allItems = repository.allItems
 
-    val idlist = mutableListOf<String>()
-
     private val _mealDetail = MutableLiveData<List<mealdetail>>()
     val mealDetail: LiveData<List<mealdetail>> = _mealDetail
 
-    fun addItem(mealId: String) {
-        idlist.add(mealId)
-        Log.d("SupermarketViewModel", "Added list $idlist")
-        Log.d("SupermarketViewModel", "Added item $mealId")
-        fetchItems()
-    }
 
-
-    fun deleteItem(mealId: String) {
-        idlist.remove(mealId)
-        fetchItems()
-    }
-
-    private fun fetchItems() {
+    fun deleteItem(itemId: String) {
         viewModelScope.launch {
-            try {
-                val details = idlist.map { mealId ->
-                    repository.getmealdetail(mealId).meals.firstOrNull()
-                }.filterNotNull()
-                _mealDetail.value = details
-            } catch (e: HttpException) {
-                Log.e("SupermarketViewModel", "HTTP error: ${e.message()}")
-            } catch (e: Exception) {
-                Log.e("SupermarketViewModel", "Error: ${e.message}")
-            }
+            repository.deleteItem(itemId)
         }
     }
 }

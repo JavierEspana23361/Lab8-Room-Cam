@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2" xmlns:ns2="http://schemas.android.com/tools">
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
     <plurals name="mtrl_badge_content_description">
     <item quantity="one">%d ახალი შეტყობინება</item>
     <item quantity="other">%d ახალი შეტყობინება</item>
@@ -31,11 +31,7 @@
     <string msgid="8875138169939072951" name="abc_shareactionprovider_share_with">"გაზიარება:"</string>
     <string msgid="9055268688411532828" name="abc_shareactionprovider_share_with_application">"<ns1:g id="APPLICATION_NAME">%s</ns1:g>-ით გაზიარება"</string>
     <string msgid="1656852541809559762" name="abc_toolbar_collapse_description">"ჩაკეცვა"</string>
-    <string name="bottomsheet_action_collapse">ქვედა ფურცლის ჩაკეცვა</string>
-    <string name="bottomsheet_action_expand">ქვედა ფურცლის გაშლა</string>
     <string name="bottomsheet_action_expand_halfway">ნახევრამდე გაფართოება</string>
-    <string name="bottomsheet_drag_handle_clicked">ორმაგი შეხება ჩავლების სახელურზე</string>
-    <string name="bottomsheet_drag_handle_content_description">სახელური ჩავლებისთვის</string>
     <string msgid="881409763997275156" name="call_notification_answer_action">"პასუხი"</string>
     <string msgid="8793775615905189152" name="call_notification_answer_video_action">"ვიდეო"</string>
     <string msgid="3229508546291798546" name="call_notification_decline_action">"უარყოფა"</string>
@@ -48,14 +44,39 @@
     <string name="clear_text_end_icon_content_description">ტექსტის გასუფთავება</string>
     <string msgid="406453423630273620" name="close_drawer">"ნავიგაციის მენიუს დახურვა"</string>
     <string msgid="7573152094250666567" name="close_sheet">"ფურცლის დახურვა"</string>
+    <string msgid="2523291102206661146" name="common_google_play_services_enable_button">ჩართვა</string>
+    <string msgid="227660514972886228" name="common_google_play_services_enable_text">%1$s ვერ იმუშავებს Google Play Services-ის ჩართვამდე.</string>
+    <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Google Play Services-ის ჩართვა</string>
+    <string msgid="7153882981874058840" name="common_google_play_services_install_button">ინსტალაცია</string>
+    <string name="common_google_play_services_install_text">%1$s ვერ გაეშვება Google Play Services-ის გარეშე, რომელიც აკლია თქვენს მოწყობილობას.</string>
+    <string msgid="7215213145546190223" name="common_google_play_services_install_title">Google Play Services-ის ჩამოტვირთვა</string>
+    <string name="common_google_play_services_notification_channel_name">Google Play services-ის ხელმისაწვდომობა</string>
+    <string name="common_google_play_services_notification_ticker">Google Play Services-ის შეცდომა</string>
+    <string name="common_google_play_services_unknown_issue">%1$s-ს Google Play Services-თან პრობლემა შეექმნა. გთხოვთ, ცადოთ ხელახლა.</string>
+    <string name="common_google_play_services_unsupported_text">%1$s ვერ გაეშვება Google Play Services-ის გარეშე, რომლებიც მხარდაუჭერელია თქვენი მოწყობილობის მიერ.</string>
+    <string msgid="6556509956452265614" name="common_google_play_services_update_button">განახლება</string>
+    <string msgid="9053896323427875356" name="common_google_play_services_update_text">%1$s ვერ გაეშვება, თუ Google Play სერვისებს არ განაახლებთ.</string>
+    <string msgid="6006316683626838685" name="common_google_play_services_update_title">განაახლეთ Google Play Services</string>
+    <string name="common_google_play_services_updating_text">%1$s ვერ გაეშვება Google Play Services-ის გარეშე, რომელთა განახლებაც ამჟამად მიმდინარეობს.</string>
+    <string name="common_google_play_services_wear_update_text">საჭიროა Google Play Services-ის ახალი ვერსია. ის მალე განახლდება.</string>
+    <string name="common_open_on_phone">ტელეფონში გახსნა</string>
+    <string name="common_signin_button_text">შესვლა</string>
+    <string name="common_signin_button_text_long">Google-ით შესვლა</string>
+    <string msgid="3260749812566568062" name="copy_toast_msg">"გაცვლის ბუფერში კოპირებული ბმული"</string>
     <string msgid="8038256446254964252" name="default_error_message">"შენატანი არასწორია"</string>
     <string msgid="6312721426453364202" name="default_popup_window_title">"ამომხტარი ფანჯარა"</string>
     <string msgid="1890207353314751437" name="dropdown_menu">"ჩამოსაშლელი მენიუ"</string>
     <string name="error_icon_content_description">შეცდომა</string>
     <string name="exposed_dropdown_menu_content_description">ჩამოსაშლელი მენიუს ჩვენება</string>
+    <string msgid="4566929209979330987" name="fallback_menu_item_copy_link">"ბმულის კოპირება"</string>
+    <string msgid="3413186855122069269" name="fallback_menu_item_open_in_browser">"ბრაუზერში გახსნა"</string>
+    <string msgid="7145444925855055364" name="fallback_menu_item_share_link">"ბმულის გაზიარება"</string>
     <string name="icon_content_description">დიალოგის ხატულა</string>
     <string msgid="6827826412747255547" name="in_progress">"მუშავდება"</string>
     <string msgid="7933458017204019916" name="indeterminate">"ნაწილობრივ შემოწმებულია"</string>
+    <string msgid="475402237100444685" name="installation_cancelled">"ინსტალაცია გაუქმდა."</string>
+    <string msgid="863287960437940689" name="installation_failed">"ინსტალაცია ვერ მოხერხდა."</string>
+    <string msgid="5968445461040787716" name="installing_module">"ინსტალირდება მოდული:"</string>
     <string name="item_view_role_description">ჩანართი</string>
     <string msgid="2988463736136100848" name="m3c_bottom_sheet_collapse_description">"ქვედა ფურცლის ჩაკეცვა"</string>
     <string msgid="1555567894577437024" name="m3c_bottom_sheet_dismiss_description">"ქვედა ფურცლის უარყოფა"</string>
@@ -115,7 +136,6 @@
     <string msgid="1805687647081129904" name="m3c_tooltip_long_press_label">"მინიშნების ჩვენება"</string>
     <string msgid="5460405025248574620" name="m3c_tooltip_pane_description">"მინიშნება"</string>
     <string name="material_clock_toggle_content_description">აირჩიეთ AM ან PM</string>
-    <string name="material_hour_24h_suffix">%1$s საათი</string>
     <string name="material_hour_selection">აირჩიეთ საათი</string>
     <string name="material_hour_suffix">%1$s საათი</string>
     <string name="material_minute_selection">აირჩიეთ წუთები</string>
@@ -129,12 +149,11 @@
     <string name="material_timepicker_text_input_mode_description">დროის შეყვანისთვის ტექსტის შეყვანის რეჟიმზე გადართვა.</string>
     <string name="mtrl_badge_numberless_content_description">ახალი შეტყობინება</string>
     <string name="mtrl_chip_close_icon_content_description">%1$s-ის ამოშლა</string>
-    <string name="mtrl_exceed_max_badge_number_content_description" ns2:ignore="PluralsCandidate">%1$d-ზე მეტი ახალი შეტყობინება</string>
+    <string name="mtrl_exceed_max_badge_number_content_description">%1$d-ზე მეტი ახალი შეტყობინება</string>
     <string name="mtrl_picker_a11y_next_month">შემდეგ თვეზე გადასვლა</string>
     <string name="mtrl_picker_a11y_prev_month">წინა თვეზე გადასვლა</string>
     <string name="mtrl_picker_announce_current_selection">ამჟამინდელი არჩევანი: %1$s</string>
-    <string name="mtrl_picker_cancel">გაუქმება</string>
-    <string name="mtrl_picker_confirm">კარგი</string>
+    <string name="mtrl_picker_confirm">@android:string/ok</string>
     <string name="mtrl_picker_date_header_selected">%1$s</string>
     <string name="mtrl_picker_date_header_title">აირჩიეთ თარიღი</string>
     <string name="mtrl_picker_date_header_unselected">არჩეული თარიღი</string>
@@ -161,13 +180,16 @@
     <string name="mtrl_picker_toggle_to_day_selection">შეეხეთ დღის არჩევაზე გადასართავად</string>
     <string name="mtrl_picker_toggle_to_text_input_mode">ტექსტის შეყვანის რეჟიმზე გადართვა</string>
     <string name="mtrl_picker_toggle_to_year_selection">შეეხეთ წლის არჩევაზე გადასართავად</string>
-    <string name="mtrl_timepicker_cancel">გაუქმება</string>
-    <string name="mtrl_timepicker_confirm">კარგი</string>
+    <string msgid="6301633601645100427" name="nav_app_bar_navigate_up_description">"ზემოთ გადასვლა"</string>
+    <string msgid="7456070600745802113" name="nav_app_bar_open_drawer_description">"ნავიგაციის უჯრის გახსნა"</string>
     <string msgid="542007171693138492" name="navigation_menu">"ნავიგაციის მენიუ"</string>
     <string msgid="6610465462668679431" name="not_selected">"არ არის არჩეული"</string>
+    <string msgid="4702104660890557116" name="ok">"კარგი"</string>
     <string name="password_toggle_content_description">პაროლის ჩვენება</string>
+    <string msgid="8366783942222789124" name="progress">"პროგრესი:"</string>
     <string msgid="5941395253238309765" name="range_end">"დიაპაზონის დასასრული"</string>
     <string msgid="7097486360902471446" name="range_start">"დიაპაზონის დასაწყისი"</string>
+    <string msgid="1065327189183624288" name="retry">"ხელახლა ცდა"</string>
     <string msgid="6264217191555673260" name="search_menu_title">"ძიება"</string>
     <string msgid="6043586758067023" name="selected">"არჩეული"</string>
     <string msgid="4139871816613051306" name="state_empty">"ცარიელი"</string>

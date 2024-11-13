@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.lab7_retrofit.app-mergeDebugResources-67:/values-port/values-port.xml",
+            "outputFile": "com.example.lab7_retrofit.app-mergeDebugResources-93:/values-port/values-port.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Javier\\.gradle\\caches\\transforms-4\\ee8a51223a34bbeb9dd762daea72249a\\transformed\\appcompat-1.6.1\\res\\values-port\\values-port.xml",
+                    "source": "C:\\Users\\Javier\\.gradle\\caches\\transforms-4\\ec76dce55979ef0eb17181289271ef1c\\transformed\\appcompat-1.2.0\\res\\values-port\\values-port.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
