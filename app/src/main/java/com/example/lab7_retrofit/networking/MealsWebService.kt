@@ -31,4 +31,6 @@ class MealsWebService {
     suspend fun getmealdetail(mealId: String): mealdetailResponse {
         return api.getmealdetail(mealId)
     }
+
+
 }

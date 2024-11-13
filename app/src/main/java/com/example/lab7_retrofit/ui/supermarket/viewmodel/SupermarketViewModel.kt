@@ -22,8 +22,11 @@ class SupermarketViewModel(private val repository: SupermarketRepository) : View
 
     fun addItem(mealId: String) {
         idlist.add(mealId)
+        Log.d("SupermarketViewModel", "Added list $idlist")
+        Log.d("SupermarketViewModel", "Added item $mealId")
         fetchItems()
     }
+
 
     fun deleteItem(mealId: String) {
         idlist.remove(mealId)
