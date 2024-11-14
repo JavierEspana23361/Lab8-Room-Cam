@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:2:1-31:12
-INJECTED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:2:1-31:12
+ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:2:1-40:12
 MERGED from [com.google.firebase:firebase-database-ktx:21.0.0] C:\Users\Javier\.gradle\caches\transforms-4\a93a19d103d049188b447bbc54e875ac\transformed\firebase-database-ktx-21.0.0\AndroidManifest.xml:2:1-18:12
 MERGED from [com.google.accompanist:accompanist-permissions:0.24.13-rc] C:\Users\Javier\.gradle\caches\transforms-4\8cb704cf7d9ee8de5ceb8ffec3b51652\transformed\accompanist-permissions-0.24.13-rc\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.camera:camera-extensions:1.4.0] C:\Users\Javier\.gradle\caches\transforms-4\457a95eee5f01889eb91301e0e55f06f\transformed\camera-extensions-1.4.0\AndroidManifest.xml:17:1-34:12
@@ -136,21 +136,39 @@ MERGED from [com.google.android.play:core-common:2.0.3] C:\Users\Javier\.gradle\
 		INJECTED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:2:11-69
+uses-feature#android.hardware.camera
+ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:6:5-8:36
+	android:required
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:8:9-33
+	android:name
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:7:9-47
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:4:5-67
+ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:10:5-67
 MERGED from [com.google.firebase:firebase-database:21.0.0] C:\Users\Javier\.gradle\caches\transforms-4\b9517530ad02f2144ae2d51d49540719\transformed\firebase-database-21.0.0\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-database:21.0.0] C:\Users\Javier\.gradle\caches\transforms-4\b9517530ad02f2144ae2d51d49540719\transformed\firebase-database-21.0.0\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:4:22-64
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:10:22-64
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:5:5-79
+ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:11:5-79
 MERGED from [com.google.firebase:firebase-database:21.0.0] C:\Users\Javier\.gradle\caches\transforms-4\b9517530ad02f2144ae2d51d49540719\transformed\firebase-database-21.0.0\AndroidManifest.xml:22:5-79
 MERGED from [com.google.firebase:firebase-database:21.0.0] C:\Users\Javier\.gradle\caches\transforms-4\b9517530ad02f2144ae2d51d49540719\transformed\firebase-database-21.0.0\AndroidManifest.xml:22:5-79
 	android:name
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:5:22-76
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:11:22-76
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:12:5-65
+	android:name
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:12:22-62
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:13:5-80
+	android:name
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:13:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:14:5-79
+	android:name
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:14:22-77
 application
-ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:7:5-29:19
-INJECTED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:7:5-29:19
+ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:16:5-39:19
+INJECTED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:16:5-39:19
 MERGED from [com.google.firebase:firebase-database-ktx:21.0.0] C:\Users\Javier\.gradle\caches\transforms-4\a93a19d103d049188b447bbc54e875ac\transformed\firebase-database-ktx-21.0.0\AndroidManifest.xml:8:5-16:19
 MERGED from [com.google.firebase:firebase-database-ktx:21.0.0] C:\Users\Javier\.gradle\caches\transforms-4\a93a19d103d049188b447bbc54e875ac\transformed\firebase-database-ktx-21.0.0\AndroidManifest.xml:8:5-16:19
 MERGED from [androidx.camera:camera-extensions:1.4.0] C:\Users\Javier\.gradle\caches\transforms-4\457a95eee5f01889eb91301e0e55f06f\transformed\camera-extensions-1.4.0\AndroidManifest.xml:28:5-32:19
@@ -208,45 +226,47 @@ MERGED from [com.google.android.play:core-common:2.0.3] C:\Users\Javier\.gradle\
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.13.1] C:\Users\Javier\.gradle\caches\transforms-4\7c5a5b60dcb0ab6aba834566c6688cc4\transformed\core-1.13.1\AndroidManifest.xml:28:18-86
 	android:supportsRtl
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:15:9-35
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:24:9-35
 	android:label
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:13:9-41
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:22:9-41
 	android:fullBackupContent
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:11:9-54
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:20:9-54
 	android:roundIcon
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:14:9-54
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:23:9-54
 	tools:targetApi
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:17:9-29
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:27:9-29
 	android:icon
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:12:9-43
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:21:9-43
 	android:allowBackup
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:9:9-35
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:18:9-35
 	android:theme
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:16:9-50
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:25:9-50
+	android:enableOnBackInvokedCallback
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:26:9-51
 	android:dataExtractionRules
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:10:9-65
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:19:9-65
 	android:name
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:8:9-30
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:17:9-30
 activity#com.example.lab7_retrofit.MainActivity
-ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:18:9-28:20
+ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:29:9-38:20
 	android:label
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:21:13-45
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:32:13-45
 	android:exported
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:20:13-36
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:31:13-36
 	android:theme
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:22:13-54
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:33:13-54
 	android:name
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:19:13-41
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:30:13-41
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:23:13-27:29
+ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:34:13-37:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:24:17-69
+ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:35:17-69
 	android:name
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:24:25-66
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:35:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:26:17-77
+ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:36:17-77
 	android:name
-		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:26:27-74
+		ADDED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml:36:27-74
 uses-sdk
 INJECTED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Javier\Desktop\Lab8-Room-Cam\app\src\main\AndroidManifest.xml

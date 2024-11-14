@@ -1,24 +1,22 @@
+// SupermarketViewModel.kt
 package com.example.lab7_retrofit.ui.supermarket.viewmodel
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.lab7_retrofit.database.supermarket.SupermarketItemEntity
-import com.example.lab7_retrofit.networking.response.mealdetail.mealdetail
 import com.example.lab7_retrofit.ui.supermarket.repository.SupermarketRepository
 import kotlinx.coroutines.launch
-import retrofit2.HttpException
 
 class SupermarketViewModel(private val repository: SupermarketRepository) : ViewModel() {
 
     val allItems = repository.allItems
 
-    private val _mealDetail = MutableLiveData<List<mealdetail>>()
-    val mealDetail: LiveData<List<mealdetail>> = _mealDetail
-
+    fun insertItem(item: SupermarketItemEntity) {
+        viewModelScope.launch {
+            repository.insertItem(item)
+        }
+    }
 
     fun deleteItem(itemId: String) {
         viewModelScope.launch {

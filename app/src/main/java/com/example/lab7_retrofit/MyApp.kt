@@ -1,3 +1,4 @@
+// MyApp.kt
 package com.example.lab7_retrofit
 
 import android.app.Application
@@ -33,7 +34,7 @@ class MyApp : Application() {
                 val meal = response.meals.firstOrNull()
                 if (meal != null) {
                     val existingItems = repository.getAllItems()
-                    val itemExists = existingItems.any { it.name == meal.name }
+                    val itemExists = existingItems.any { item -> item.name == meal.name }
                     if (!itemExists) {
                         val item = SupermarketItemEntity(
                             name = meal.name,

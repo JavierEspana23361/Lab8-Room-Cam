@@ -1,36 +1,48 @@
+// SupermarketScreen.kt
 package com.example.lab7_retrofit.ui.supermarket.view
 
+import android.Manifest
+import android.app.Activity
+import android.content.Context
+import android.net.Uri
+import android.os.Environment
+import android.util.Log
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Button
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.collectAsState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.FileProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil.compose.rememberAsyncImagePainter
 import com.example.lab7_retrofit.MyApp
+import com.example.lab7_retrofit.database.supermarket.SupermarketItemEntity
 import com.example.lab7_retrofit.navigation.AppBar
+import com.example.lab7_retrofit.networking.MealsWebService
 import com.example.lab7_retrofit.ui.supermarket.repository.SupermarketRepository
 import com.example.lab7_retrofit.ui.supermarket.viewmodel.SupermarketViewModel
 import com.example.lab7_retrofit.ui.supermarket.viewmodel.SupermarketViewModelFactory
-import com.example.lab7_retrofit.database.supermarket.SupermarketItemEntity
-import com.example.lab7_retrofit.networking.MealsWebService
+import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SupermarketScreen(navController: NavController) {
     val context = LocalContext.current
+    val activity = context as? Activity // Obtain Activity context
     val app = context.applicationContext as MyApp
     val supermarketRepository = SupermarketRepository(
         webService = MealsWebService(),
@@ -42,17 +54,113 @@ fun SupermarketScreen(navController: NavController) {
     )
     val items by supermarketViewModel.allItems.collectAsState(initial = emptyList())
 
-    Scaffold(topBar = {
-        AppBar(title = "Supermarket List", navController = navController)
-    }) {
+    var capturedImageUri by remember { mutableStateOf<Uri?>(null) }
+    var mealName by remember { mutableStateOf("") }
+
+    val cameraLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.TakePicture()
+    ) { success ->
+        if (success) {
+            capturedImageUri?.let { uri ->
+                val item = SupermarketItemEntity(name = mealName, quantity = "1", imagePath = uri.toString())
+                supermarketViewModel.insertItem(item)
+                Log.d("SupermarketScreen", "Item added to database: $item")
+                capturedImageUri = null
+                mealName = ""
+            }
+        }
+    }
+
+    val permissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestMultiplePermissions()
+    ) { permissions ->
+        val cameraGranted = permissions[Manifest.permission.CAMERA] == true
+        val storageGranted = permissions[Manifest.permission.WRITE_EXTERNAL_STORAGE] == true
+
+        if (cameraGranted && storageGranted) {
+            // Permissions granted, launch camera
+            val photoFile = createImageFile(activity!!)
+            capturedImageUri = getUriForFile(activity, photoFile)
+            cameraLauncher.launch(capturedImageUri)
+        } else {
+            Log.e("SupermarketScreen", "Camera or storage permission denied")
+        }
+    }
+
+    var showDialog by remember { mutableStateOf(false) }
+
+    if (showDialog) {
+        AlertDialog(
+            onDismissRequest = { showDialog = false },
+            title = { Text("Enter Meal Name") },
+            text = {
+                Column {
+                    OutlinedTextField(
+                        value = mealName,
+                        onValueChange = { mealName = it },
+                        label = { Text("Meal Name") }
+                    )
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Button(onClick = {
+                        showDialog = false
+                        if (mealName.isNotEmpty()) {
+                            // Request permissions and launch camera
+                            val permissions = arrayOf(
+                                Manifest.permission.CAMERA,
+                                Manifest.permission.WRITE_EXTERNAL_STORAGE
+                            )
+                            permissionLauncher.launch(permissions)
+                        }
+                    }) {
+                        Text("Open Camera")
+                    }
+                }
+            },
+            confirmButton = {
+                Button(onClick = { showDialog = false }) {
+                    Text("OK")
+                }
+            },
+            dismissButton = {
+                Button(onClick = { showDialog = false }) {
+                    Text("Cancel")
+                }
+            }
+        )
+    }
+
+    Scaffold(
+        topBar = {
+            AppBar(title = "Supermarket List", navController = navController)
+        },
+        floatingActionButton = {
+            FloatingActionButton(onClick = { showDialog = true }) {
+                Icon(Icons.Filled.Add, contentDescription = "Add Food")
+            }
+        }
+    ) {
         Column(modifier = Modifier.padding(it)) {
             LazyColumn {
-                items(items) { item: SupermarketItemEntity ->
+                items(items) { item ->
                     SupermarketItemRow(item = item, onDelete = { id -> supermarketViewModel.deleteItem(id) })
                 }
             }
         }
     }
+}
+
+fun createImageFile(context: Context): File {
+    val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
+    val storageDir: File? = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+    return File.createTempFile(
+        "JPEG_${timeStamp}_",
+        ".jpg",
+        storageDir
+    )
+}
+
+fun getUriForFile(context: Context, file: File): Uri {
+    return FileProvider.getUriForFile(context, "${context.packageName}.fileprovider", file)
 }
 
 @Composable

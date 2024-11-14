@@ -1,9 +1,9 @@
+// SupermarketRepository.kt
 package com.example.lab7_retrofit.ui.supermarket.repository
 
 import com.example.lab7_retrofit.database.supermarket.SupermarketItemDao
 import com.example.lab7_retrofit.database.supermarket.SupermarketItemEntity
 import com.example.lab7_retrofit.networking.MealsWebService
-import com.example.lab7_retrofit.networking.response.mealdetail.mealdetailResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
@@ -13,10 +13,8 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-data class SupermarketItem(val name: String, val quantity: Int)
-
 class SupermarketRepository(
-    private val webService: MealsWebService = MealsWebService(),
+    private val webService: MealsWebService,
     private val dao: SupermarketItemDao
 ) {
 
@@ -27,10 +25,6 @@ class SupermarketRepository(
         CoroutineScope(Dispatchers.IO).launch {
             _items.value = dao.getAllItems().first()
         }
-    }
-
-    suspend fun getmealdetail(mealId: String): mealdetailResponse {
-        return webService.getmealdetail(mealId)
     }
 
     suspend fun insertItem(item: SupermarketItemEntity) {
@@ -47,7 +41,9 @@ class SupermarketRepository(
         }
     }
 
-    suspend fun getAllItems(): List<SupermarketItemEntity> {
-        return dao.getAllItems().first()
+    suspend fun getmealdetail(mealId: String) = webService.getmealdetail(mealId)
+
+    suspend fun getAllItems(): List<SupermarketItemEntity> = withContext(Dispatchers.IO) {
+        dao.getAllItems().first()
     }
 }
