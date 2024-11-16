@@ -64,6 +64,12 @@
             </intent-filter>
         </activity>
 
+        <!-- Add this entry for CameraActivity -->
+        <activity
+            android:name="com.example.lab7_retrofit.ui.camera.view.CameraActivity"
+            android:exported="true" >
+        </activity>
+
         <service
             android:name="com.google.firebase.components.ComponentDiscoveryService"
             android:directBootAware="true"

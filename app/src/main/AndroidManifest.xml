@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
@@ -36,5 +35,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- Add this entry for CameraActivity -->
+        <activity
+            android:name=".ui.camera.view.CameraActivity"
+            android:exported="true">
+        </activity>
+
     </application>
 </manifest>

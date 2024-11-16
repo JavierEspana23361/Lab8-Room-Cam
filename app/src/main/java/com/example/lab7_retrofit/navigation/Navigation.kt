@@ -8,6 +8,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
+import com.example.lab7_retrofit.ui.camera.view.CameraScreen
 import com.example.lab7_retrofit.ui.categories.view.MealsCategoriesScreen
 import com.example.lab7_retrofit.ui.mealdetail.view.MealsDetailScreen
 import com.example.lab7_retrofit.ui.meals.view.MealsFilterScreen
@@ -43,6 +44,15 @@ fun Navigation(navController: NavHostController, modifier: Modifier = Modifier) 
         }
         composable(route = "supermarket") {
             SupermarketScreen(navController = navController)
+        }
+        composable(
+            route = "camera_screen/{mealName}",
+            arguments = listOf(navArgument("mealName") {
+                type = NavType.StringType
+            })
+        ) { backStackEntry ->
+            val mealName = backStackEntry.arguments?.getString("mealName") ?: ""
+            CameraScreen(navController = navController, mealName = mealName)
         }
     }
 }

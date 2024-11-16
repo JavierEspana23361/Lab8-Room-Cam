@@ -4,6 +4,7 @@ package com.example.lab7_retrofit.ui.supermarket.view
 import android.Manifest
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.os.Environment
 import android.util.Log
@@ -31,6 +32,7 @@ import com.example.lab7_retrofit.MyApp
 import com.example.lab7_retrofit.database.supermarket.SupermarketItemEntity
 import com.example.lab7_retrofit.navigation.AppBar
 import com.example.lab7_retrofit.networking.MealsWebService
+import com.example.lab7_retrofit.ui.camera.view.CameraActivity
 import com.example.lab7_retrofit.ui.supermarket.repository.SupermarketRepository
 import com.example.lab7_retrofit.ui.supermarket.viewmodel.SupermarketViewModel
 import com.example.lab7_retrofit.ui.supermarket.viewmodel.SupermarketViewModelFactory
@@ -42,7 +44,6 @@ import java.util.*
 @Composable
 fun SupermarketScreen(navController: NavController) {
     val context = LocalContext.current
-    val activity = context as? Activity // Obtain Activity context
     val app = context.applicationContext as MyApp
     val supermarketRepository = SupermarketRepository(
         webService = MealsWebService(),
@@ -54,40 +55,25 @@ fun SupermarketScreen(navController: NavController) {
     )
     val items by supermarketViewModel.allItems.collectAsState(initial = emptyList())
 
-    var capturedImageUri by remember { mutableStateOf<Uri?>(null) }
     var mealName by remember { mutableStateOf("") }
+    var showDialog by remember { mutableStateOf(false) }
 
-    val cameraLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.TakePicture()
-    ) { success ->
-        if (success) {
-            capturedImageUri?.let { uri ->
-                val item = SupermarketItemEntity(name = mealName, quantity = "1", imagePath = uri.toString())
-                supermarketViewModel.insertItem(item)
-                Log.d("SupermarketScreen", "Item added to database: $item")
-                capturedImageUri = null
-                mealName = ""
+    val launcher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data = result.data
+            val photoPath = data?.getStringExtra("photoPath")
+            if (photoPath != null) {
+                val newItem = SupermarketItemEntity(
+                    name = mealName,
+                    quantity = "1",
+                    imagePath = photoPath
+                )
+                supermarketViewModel.insertItem(newItem)
             }
         }
     }
-
-    val permissionLauncher = rememberLauncherForActivityResult(
-        contract = ActivityResultContracts.RequestMultiplePermissions()
-    ) { permissions ->
-        val cameraGranted = permissions[Manifest.permission.CAMERA] == true
-        val storageGranted = permissions[Manifest.permission.WRITE_EXTERNAL_STORAGE] == true
-
-        if (cameraGranted && storageGranted) {
-            // Permissions granted, launch camera
-            val photoFile = createImageFile(activity!!)
-            capturedImageUri = getUriForFile(activity, photoFile)
-            cameraLauncher.launch(capturedImageUri)
-        } else {
-            Log.e("SupermarketScreen", "Camera or storage permission denied")
-        }
-    }
-
-    var showDialog by remember { mutableStateOf(false) }
 
     if (showDialog) {
         AlertDialog(
@@ -104,12 +90,10 @@ fun SupermarketScreen(navController: NavController) {
                     Button(onClick = {
                         showDialog = false
                         if (mealName.isNotEmpty()) {
-                            // Request permissions and launch camera
-                            val permissions = arrayOf(
-                                Manifest.permission.CAMERA,
-                                Manifest.permission.WRITE_EXTERNAL_STORAGE
-                            )
-                            permissionLauncher.launch(permissions)
+                            val intent = Intent(context, CameraActivity::class.java).apply {
+                                putExtra("mealName", mealName)
+                            }
+                            launcher.launch(intent)
                         }
                     }) {
                         Text("Open Camera")
@@ -148,6 +132,7 @@ fun SupermarketScreen(navController: NavController) {
         }
     }
 }
+
 
 fun createImageFile(context: Context): File {
     val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(Date())
